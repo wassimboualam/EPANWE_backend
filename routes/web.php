@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CsrfController;
 use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\JoinRequestsController;
 use App\Http\Controllers\TestController;
@@ -14,7 +15,7 @@ Route::get("/programs", [ProgramsController::class, "index"]);
 
 
 
-Route::get("/csrf", fn() => csrf_token());
+Route::get("/csrf", [CsrfController::class, "index"]);
 
 
 Route::resource("/request", JoinRequestsController::class)->parameter("request", "id");
