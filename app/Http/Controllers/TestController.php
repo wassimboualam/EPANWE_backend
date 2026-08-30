@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestMail;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
+use Mail;
 
 class TestController extends Controller
 {
     public function index(Request $request) {
         try {
-            User::create([
-                'first_name' => "The",
-                'last_name' => "admin",
-                'email' => "spicelenderenterprises@gmail.com",
-                'password' => Hash::make("AmBouToBlow"),
-                'age' => 100,
-                'role' => "admin",
-            ]);
-            return "Admin created successfully";
+            Mail::to("wassimboualam05@gmail.com")->send(new TestMail());
+            return "test sent";
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
