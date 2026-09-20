@@ -96,7 +96,6 @@ Now go get your password from your email and log in.",
             ];
         }
         catch (\Throwable $th) {
-            throw $th;
             return response(
                 content: [
                     "title" => "Error somewhere",

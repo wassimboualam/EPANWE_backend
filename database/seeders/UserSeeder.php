@@ -59,7 +59,7 @@ class UserSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'User',
             'email' => 'admin@email.com',
-            'password' => 'AmBoutToBlowTwice',
+            'password' => 'admin123',
             'age' => 30,
             'gender' => 'clank',
             'role' => 'admin',
