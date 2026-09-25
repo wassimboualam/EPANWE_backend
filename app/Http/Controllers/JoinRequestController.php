@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Mail;
 
-class JoinRequestsController extends Controller
+class JoinRequestController extends Controller
 {
 
     public function index(Request $request) {

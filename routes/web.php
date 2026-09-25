@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\CsrfController;
 use App\Http\Controllers\ProgramsController;
-use App\Http\Controllers\JoinRequestsController;
+use App\Http\Controllers\JoinRequestController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Models\PartnershipRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,11 +19,11 @@ Route::get("/programs", [ProgramsController::class, "index"]);
 Route::get("/csrf", [CsrfController::class, "index"]);
 
 
-Route::resource("/request", JoinRequestsController::class)->parameter("request", "id");
+Route::resource("/request", JoinRequestController::class)->parameter("request", "id");
 
 Route::prefix("request")->group(function () {
-    // Route::resource("", JoinRequestsController::class)->parameter("request", "id");
-    Route::post("/setapproval", [JoinRequestsController::class, "setApproval"]);
+    // Route::resource("", JoinRequestController::class)->parameter("request", "id");
+    Route::post("/setapproval", [JoinRequestController::class, "setApproval"]);
 });
 
 Route::prefix("user")->group(function () {
@@ -40,6 +41,12 @@ Route::prefix("user")->group(function () {
 
     Route::get("/logout", [UserController::class, "logout"]);
     
+});
+
+Route::prefix("partner")->group(function () {
+    Route::get("/", [PartnershipRequest::class, "index"]);
+    Route::delete("/delete/{id}", [PartnershipRequest::class, "destroy"]);
+
 });
 
 Route::get("/test", [TestController::class, "index"]);
