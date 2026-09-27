@@ -45,6 +45,7 @@ Route::prefix("user")->group(function () {
 
 Route::prefix("partner")->group(function () {
     Route::get("/", [PartnershipRequestController::class, "index"]);
+    Route::post("/", [PartnershipRequestController::class, "store"]);
     Route::delete("/delete/{id}", [PartnershipRequestController::class, "destroy"]);
 
 });

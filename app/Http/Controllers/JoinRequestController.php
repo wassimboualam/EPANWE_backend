@@ -27,8 +27,8 @@ class JoinRequestController extends Controller
             return response(
                 content: [
                     "type" => "error",
-                    // "message" => $validator->errors()->messages()["userId"][0],
-                    "message" => "I don't know how you did it but you managed to mess this site up. Well done, hacker.",
+                    "title" => "Quelque chose ne va pas",
+                    "message" => $validator->errors()->first(),
                 ],
                 status: 400,
             );
