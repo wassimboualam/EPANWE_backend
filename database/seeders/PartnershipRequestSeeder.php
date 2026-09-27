@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\PartnershipRequest;
+use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,9 @@ class PartnershipRequestSeeder extends Seeder
      */
     public function run(): void
     {
+
+        DB::table("partnership_requests")->truncate();
+        
         // A small deterministic batch, so you always get the same
         // set of examples when re-seeding during development.
         $examples = [

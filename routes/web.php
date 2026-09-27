@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\CsrfController;
+use App\Http\Controllers\PartnershipRequestController;
 use App\Http\Controllers\ProgramsController;
 use App\Http\Controllers\JoinRequestController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
-use App\Models\PartnershipRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,8 +44,8 @@ Route::prefix("user")->group(function () {
 });
 
 Route::prefix("partner")->group(function () {
-    Route::get("/", [PartnershipRequest::class, "index"]);
-    Route::delete("/delete/{id}", [PartnershipRequest::class, "destroy"]);
+    Route::get("/", [PartnershipRequestController::class, "index"]);
+    Route::delete("/delete/{id}", [PartnershipRequestController::class, "destroy"]);
 
 });
 
